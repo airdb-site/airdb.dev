@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+# Legacy content pending rewrite for the AirDB product site
+Disallow: /zh/
+Disallow: /cc/
+
+Sitemap: https://airdb.io/sitemap-index.xml

@@ -71,7 +71,7 @@ export const CAPABILITIES: Capability[] = [
   {
     no: "01",
     title: "开发文档",
-    copy: "对外公开的平台与 API 文档，无需登录即可阅读、可被搜索引擎索引。",
+    copy: "公开的环境约定、系统台账与门户能力说明，无需登录即可阅读。",
     status: "live",
     href: "/docs/",
   },

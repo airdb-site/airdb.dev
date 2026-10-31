@@ -10,9 +10,10 @@ interface Props {
   ogImage?: string;
   /** Page content language; legacy English pages pass "en". */
   lang?: string;
+  noindex?: boolean;
 }
 
-const { title, description, path = "/", ogImage = "/og/home.png", lang = "zh-CN" } = Astro.props;
+const { noindex = false, title, description, path = "/", ogImage = "/og/home.png", lang = "zh-CN" } = Astro.props;
 const site = Astro.site ?? new URL("https://airdb.dev");
 const canonical = new URL(path, site).href;
 const ogImageUrl = new URL(ogImage, site).href;
@@ -42,7 +43,7 @@ const jsonLd = JSON.stringify({
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="airdb.dev" />
@@ -134,6 +135,13 @@ const jsonLd = JSON.stringify({
         const open = bar?.classList.toggle("nav-open") ?? false;
         toggle.setAttribute("aria-expanded", String(open));
         toggle.textContent = open ? "关闭" : "菜单";
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && bar?.classList.contains("nav-open")) {
+          bar.classList.remove("nav-open");
+          toggle?.setAttribute("aria-expanded", "false");
+          if (toggle) { toggle.textContent = "菜单"; toggle.focus(); }
+        }
       });
       // Close the mobile panel after navigating to an anchor
       document.querySelectorAll("#site-nav a").forEach((a) =>

@@ -1,7 +1,7 @@
 {
   "name": "AirDB",
   "short_name": "AirDB",
-  "description": "Enterprise data platform: cloud database tools, industry data APIs, and agriculture analytics SaaS.",
+  "description": "airdb 研发门户：开发文档、系统台账与内部系统导航。",
   "start_url": "/",
   "display": "browser",
   "background_color": "#faf6ee",

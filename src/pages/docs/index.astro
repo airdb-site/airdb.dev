@@ -43,7 +43,7 @@ const envPairs = (cnGroup?.items ?? []).map((cn, i) => ({
         <strong>国内走 airdb.net（已备案），海外走 airdb.dev</strong>（<code>.dev</code>
         无法 ICP 备案，仅部署海外节点）。两边系统一一对应，域名按环境切换、路径保持一致。
       </p>
-      <div class="table-scroll">
+      <div class="table-scroll" tabindex="0">
         <table class="doc-table">
           <thead>
             <tr>
@@ -74,7 +74,7 @@ const envPairs = (cnGroup?.items ?? []).map((cn, i) => ({
       {SYSTEM_GROUPS.map((g) => (
         <>
           <h3>{g.title} <small>· {g.note}</small></h3>
-          <div class="table-scroll">
+          <div class="table-scroll" tabindex="0">
             <table class="doc-table">
               <thead>
                 <tr>
@@ -108,7 +108,7 @@ const envPairs = (cnGroup?.items ?? []).map((cn, i) => ({
         门户各能力的当前状态。标注「筹备中」的部分上线后会在本页开出对应文档入口，
         在那之前请以各仓库的 README 为准。
       </p>
-      <div class="table-scroll">
+      <div class="table-scroll" tabindex="0">
         <table class="doc-table">
           <thead>
             <tr>
@@ -138,12 +138,12 @@ const envPairs = (cnGroup?.items ?? []).map((cn, i) => ({
       <h2><span class="sec-no">04 · 维护</span>文档维护方式</h2>
       <p>
         本站是静态站点（Astro），源码在
-        <a href={`${GITHUB_URL}-site`} rel="noopener">GitHub</a>。更新文档的方式：
+        <a href="https://github.com/airdb-site/airdb.dev" rel="noopener">GitHub</a>。更新文档的方式：
       </p>
       <p>
         系统台账、能力清单 → 改 <code>src/config/portal.ts</code>；
         本页正文 → 改 <code>src/pages/docs/index.astro</code>。
-        push 到 main 后由 CI 自动构建部署，国内外环境同源发布。
+        本站推送到 main 后由 CI 自动构建并发布到 GitHub Pages。
       </p>
     </section>
   </div>
